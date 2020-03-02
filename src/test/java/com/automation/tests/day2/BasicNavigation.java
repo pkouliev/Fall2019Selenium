@@ -25,7 +25,7 @@ public class BasicNavigation {
         // method that return page title
         //you can also see it as tab name, in the browser
         String title = driver.getTitle(); // returns <title>Some title</title> text
-        String expectedTitle = "Google";
+        String expectedTitle = "Google"; // we provide it
 
         System.out.println("Title is..." + title);
 
