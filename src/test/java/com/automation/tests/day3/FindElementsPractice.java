@@ -12,5 +12,13 @@ public class FindElementsPractice {
 //        WebDriver driver = new ChromeDriver();
 
         WebDriver driver = DriverFactory.createADriver("chrome");
+        driver.get("http://practice.cybertekschool.com/sign_up");
+
+
+
+
+
+
+        driver.quit(); // to close everything
     }
 }
