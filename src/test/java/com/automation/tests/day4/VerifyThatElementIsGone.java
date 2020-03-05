@@ -10,7 +10,7 @@ public class VerifyThatElementIsGone {
     /**
      * Interview question:
      *
-     * how to check if element doesn't exist any more
+     * how to check if element doesn't exist any more in the DOM (Document Object Model)
      *
      */
     public static void main(String[] args) throws Exception {
@@ -24,6 +24,12 @@ public class VerifyThatElementIsGone {
         driver.findElement(By.id("disappearing_button")).click();
 
         Thread.sleep(2000);
+
+        if(driver.findElements(By.id("disappearing_button")).size() == 0) {
+            System.out.println("TEST PASSED");
+        }else {
+            System.out.println("TEST FAILED");
+        }
 
 
 
