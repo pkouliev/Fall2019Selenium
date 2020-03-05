@@ -41,6 +41,10 @@ public class FindElementById {
         // partialLinkText - contains() - complete match doesn't required
         // don't put space
         WebElement logout = driver.findElement(By.partialLinkText("Logout"));
+
+        String href = logout.getAttribute("href");
+        System.out.println(href);
+
         logout.click();
 
         Thread.sleep(2000);
