@@ -23,10 +23,23 @@ public class FindElementsTest {
 
         Thread.sleep(3000);
 
+
+
         for(WebElement link: links) {
             System.out.println(link.getText());
             System.out.println(link.getAttribute("href"));
             System.out.println();
+            link.click(); // click on link
+//            Thread.sleep(2000);
+//            driver.navigate().back(); // go back
+        }
+
+        for(int i=1; i < links.size(); i++) {
+            links.get(i).click();
+            Thread.sleep(2000);
+
+            driver.navigate().back();
+            Thread.sleep(2000);
         }
 
         driver.quit();
