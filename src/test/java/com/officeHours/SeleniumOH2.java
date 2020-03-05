@@ -41,8 +41,21 @@ public class SeleniumOH2 {
         WebElement error = driver.findElement(By.xpath("//p[@class='alert alert-warning']"));
         String errorText = error.getText();
         // .getText() -> returns String (text) from the element
-        System.out.println("Error message: " + errorText);
+        //System.out.println("Error message: " + errorText);
         // NoSuchElementException - it means we could not locate the element
+
+        search_box = driver.findElement(By.id("search_query_top"));
+        search_box.clear();
+        // .clear() - it will delete any values from input box
+        search_box.sendKeys("t-shirt" + Keys.ENTER);
+        // StaleElementReferenceException - element is old/stale
+        // we want to find this element again OR refresh page
+
+        Thread.sleep(5000);
+
+        WebElement count = driver.findElement(By.className("product-count"));
+        System.out.println("items found: " + count.getText());
+
 
         driver.quit();
     }
