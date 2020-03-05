@@ -12,9 +12,9 @@ public class March4 {
 
     public static void main(String[] args) throws Exception {
 
-        ebayTest();
-       amazonTest();
-//        wikiTest();
+   //     ebayTest();
+  //     amazonTest();
+        wikiTest();
 
     }
 
@@ -76,7 +76,7 @@ public class March4 {
      * Go to wikipedia.org
      * enter the search term `selenium webdriver`
      * Click on the search button
-     * Click on search result `Selenium (software)`
+     * search for `Selenium (software)`
      * verify URL ends with `Selenium_(software)`
      */
 
@@ -86,6 +86,20 @@ public class March4 {
         driver.get("https://en.wikipedia.org/wiki/Main_Page");
 
         Thread.sleep(5000);
+
+        driver.findElement(By.id("searchInput")).sendKeys("Selenium (software)", Keys.ENTER);
+
+        Thread.sleep(5000);
+
+        String link = driver.getCurrentUrl(); // to get link as a String
+
+        Thread.sleep(5000);
+
+        if(link.endsWith("Selenium_(software)")) {
+            System.out.println("TEST PASSED");
+        } else {
+            System.out.println("TEST FAILED");
+        }
 
 
         driver.quit();
