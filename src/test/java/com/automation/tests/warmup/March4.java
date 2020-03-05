@@ -55,10 +55,22 @@ public class March4 {
     public static void amazonTest() throws Exception{
 
         driver = DriverFactory.createADriver("chrome");
+
         driver.get("http://amazon.com");
-        //enter text and clivk ENTER
+
+        Thread.sleep(5000);
+
+
         driver.findElement(By.id("twotabsearchtextbox")).sendKeys("java book", Keys.ENTER);
+
+        Thread.sleep(5000);
+
+
+
+        Thread.sleep(5000);
+
         String title = driver.getTitle();
+
         if (title.contains("java book")) {
             System.out.println("Test Passed");
         }else {
@@ -87,7 +99,13 @@ public class March4 {
 
         Thread.sleep(5000);
 
-        driver.findElement(By.id("searchInput")).sendKeys("Selenium (software)", Keys.ENTER);
+        driver.findElement(By.id("searchInput")).sendKeys("selenium webdriver", Keys.ENTER);
+
+        //driver.findElement(By.name("go")).click();
+
+        Thread.sleep(5000);
+
+        driver.findElement(By.partialLinkText("Selenium (software)")).click();
 
         Thread.sleep(5000);
 
