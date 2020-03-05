@@ -12,7 +12,7 @@ public class March4 {
 
     public static void main(String[] args) throws Exception {
 
-       // ebayTest();
+        ebayTest();
        amazonTest();
 //        wikiTest();
 
@@ -31,7 +31,12 @@ public class March4 {
         driver.findElement(By.id("gh-ac")).sendKeys("java book");
         driver.findElement(By.id("gh-btn")).click();
         WebElement searchResults = driver.findElement(By.tagName("h1"));
-        System.out.println(searchResults.getText().split(" ") [0]);
+
+        String[] searchSentence = searchResults.getText().split(" ");
+
+        System.out.println(searchSentence[0]);
+
+        //System.out.println(searchResults.getText().split(" ") [0]);
 
         Thread.sleep(5000);
 
@@ -67,9 +72,18 @@ public class March4 {
 
     }
 
+    /**
+     * Go to wikipedia.org
+     * enter the search term `selenium webdriver`
+     * Click on the search button
+     * Click on search result `Selenium (software)`
+     * verify URL ends with `Selenium_(software)`
+     */
+
     public static void wikiTest() throws Exception {
 
         driver = DriverFactory.createADriver("chrome");
+        driver.get("https://en.wikipedia.org/wiki/Main_Page");
 
         Thread.sleep(5000);
 
