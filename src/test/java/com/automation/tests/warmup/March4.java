@@ -88,31 +88,36 @@ public class March4 {
      * Go to wikipedia.org
      * enter the search term `selenium webdriver`
      * Click on the search button
-     * search for `Selenium (software)`
+     * click on search result `Selenium (software)`
      * verify URL ends with `Selenium_(software)`
      */
 
     public static void wikiTest() throws Exception {
 
         driver = DriverFactory.createADriver("chrome");
+
+        // Go to wikipedia.org
         driver.get("https://en.wikipedia.org/wiki/Main_Page");
 
-        Thread.sleep(5000);
+        Thread.sleep(2000);
 
-        driver.findElement(By.id("searchInput")).sendKeys("selenium webdriver", Keys.ENTER);
+        // enter the search term `selenium webdriver` & click on the search button
+        driver.findElement(By.id("searchInput")).sendKeys("selenium webdriver", Keys.RETURN);
 
         //driver.findElement(By.name("go")).click();
 
-        Thread.sleep(5000);
+        Thread.sleep(2000);
 
+        //click on search result `Selenium (software)`
         driver.findElement(By.partialLinkText("Selenium (software)")).click();
 
-        Thread.sleep(5000);
+        Thread.sleep(2000);
 
         String link = driver.getCurrentUrl(); // to get link as a String
 
-        Thread.sleep(5000);
+        Thread.sleep(2000);
 
+        //verify URL ends with `Selenium_(software)`
         if(link.endsWith("Selenium_(software)")) {
             System.out.println("TEST PASSED");
         } else {
