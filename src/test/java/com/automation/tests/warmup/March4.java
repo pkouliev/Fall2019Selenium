@@ -2,6 +2,7 @@ package com.automation.tests.warmup;
 
 import com.automation.utilities.DriverFactory;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
@@ -11,8 +12,8 @@ public class March4 {
 
     public static void main(String[] args) throws Exception {
 
-        ebayTest();
-//        amazonTest();
+       // ebayTest();
+       amazonTest();
 //        wikiTest();
 
     }
@@ -25,7 +26,6 @@ public class March4 {
      */
 
     public static void ebayTest() throws Exception {
-
         driver = DriverFactory.createADriver("chrome");
         driver.get("http://ebay.com");
         driver.findElement(By.id("gh-ac")).sendKeys("java book");
@@ -50,7 +50,15 @@ public class March4 {
     public static void amazonTest() throws Exception{
 
         driver = DriverFactory.createADriver("chrome");
-
+        driver.get("http://amazon.com");
+        //enter text and clivk ENTER
+        driver.findElement(By.id("twotabsearchtextbox")).sendKeys("java book", Keys.ENTER);
+        String title = driver.getTitle();
+        if (title.contains("java book")) {
+            System.out.println("Test Passed");
+        }else {
+            System.out.println("Test Failed");
+        }
         Thread.sleep(5000);
 
 
