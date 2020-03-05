@@ -31,6 +31,8 @@ public class VerifyThatElementIsGone {
             System.out.println("TEST FAILED");
         }
 
+        driver.quit();
+
 
 
 
