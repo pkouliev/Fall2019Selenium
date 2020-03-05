@@ -16,12 +16,12 @@ public class FindElementsTest {
         WebDriver driver = new ChromeDriver();
         driver.get("http://practice.cybertekschool.com/");
 
-        Thread.sleep(3000);
+//        Thread.sleep(3000);
 
         // how to collect all links from the page?
         List<WebElement> links = driver.findElements(By.tagName("a"));
 
-        Thread.sleep(3000);
+//        Thread.sleep(3000);
 
 
 
@@ -29,17 +29,20 @@ public class FindElementsTest {
             System.out.println(link.getText());
             System.out.println(link.getAttribute("href"));
             System.out.println();
-            link.click(); // click on link
+//            link.click(); // click on link
 //            Thread.sleep(2000);
 //            driver.navigate().back(); // go back
         }
 
         for(int i=1; i < links.size(); i++) {
             links.get(i).click();
-            Thread.sleep(2000);
-
+//            Thread.sleep(2000);
+//            driver.findElements(By.tagName("a")).get(i).click();
             driver.navigate().back();
-            Thread.sleep(2000);
+
+//            Thread.sleep(2000);
+            // refresh list
+            links =driver.findElements(By.tagName("a"));
         }
 
         driver.quit();
