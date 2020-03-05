@@ -56,6 +56,20 @@ public class SeleniumOH2 {
         WebElement count = driver.findElement(By.className("product-count"));
         System.out.println("items found: " + count.getText());
 
+        /*
+        <a class="button ajax_add_to_cart_button btn btn-default"
+        href="http://automationpractice.com/index.php?controller=cart&amp;add=1&amp;id_product=1&amp;token=e817bb0705dd58da8db074c69f729fd8"
+        rel="nofollow" title="Add to cart" data-id-product="1">
+			<span>Add to cart</span>
+		</a>
+
+		a - link
+		span - description
+         */
+
+        WebElement addToCart = driver.findElement(By.className("button ajax_add_to_cart_button btn btn-default"));
+        addToCart.click();
+
 
         driver.quit();
     }
