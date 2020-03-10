@@ -24,6 +24,8 @@ public class FileUploading {
         // I am gonna upload pom.xml file
         String filePath = System.getProperty("user.dir") + "/pom.xml";
 
+        System.out.println(filePath);
+
         upload.sendKeys(filePath);
 
         driver.findElement(By.id("file-submit")).click(); // click to upload
