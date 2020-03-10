@@ -18,6 +18,8 @@ public class TestForiFrame {
         BrowserUtils.wait(4);
 
         // before looking for that element, we need to jump to that frame
+        //you can specify: name, id, index or webElement of the frame
+        // it's like we are jumping to another layer
         driver.switchTo().frame("mce_0_ifr");
         // now, this content will be visible
 
