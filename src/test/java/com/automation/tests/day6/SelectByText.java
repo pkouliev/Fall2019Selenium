@@ -28,6 +28,10 @@ public class SelectByText {
         selectSimpleDropdown.selectByVisibleText("Option 2");
         BrowserUtils.wait(2);
 
+        // and select option 1
+        selectSimpleDropdown.selectByVisibleText("Option 1");
+        BrowserUtils.wait(2);
+
 
 
 
