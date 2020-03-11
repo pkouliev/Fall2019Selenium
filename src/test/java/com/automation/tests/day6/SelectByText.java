@@ -16,48 +16,49 @@ public class SelectByText {
         WebDriver driver = DriverFactory.createADriver("chrome");
 
         driver.get("http://practice.cybertekschool.com/dropdown");
-        BrowserUtils.wait(2);
+        BrowserUtils.wait(1);
 
         // create a webElement object for drop-down first
         WebElement simpleDropdown = driver.findElement(By.id("dropdown"));
-        BrowserUtils.wait(2);
+        BrowserUtils.wait(1);
 
         // provide webElement object into constructor
         Select selectSimpleDropdown = new Select(simpleDropdown);
-        BrowserUtils.wait(2);
+        BrowserUtils.wait(1);
 
         //select by visible text
         selectSimpleDropdown.selectByVisibleText("Option 2");
-        BrowserUtils.wait(2);
+        BrowserUtils.wait(1);
 
         // and select option 1
         selectSimpleDropdown.selectByVisibleText("Option 1");
-        BrowserUtils.wait(2);
+        BrowserUtils.wait(1);
 
         // select your DOB
         Select selectYear = new Select(driver.findElement(By.id("year")));
-        BrowserUtils.wait(2);
+        BrowserUtils.wait(1);
         Select selectMonth = new Select(driver.findElement(By.id("month")));
-        BrowserUtils.wait(2);
+        BrowserUtils.wait(1);
         Select selectDay = new Select(driver.findElement(By.id("day")));
-        BrowserUtils.wait(2);
+        BrowserUtils.wait(1);
 
         selectDay.selectByVisibleText("1");
-        BrowserUtils.wait(2);
+        BrowserUtils.wait(1);
         selectMonth.selectByVisibleText("February");
-        BrowserUtils.wait(2);
+        BrowserUtils.wait(1);
         selectYear.selectByVisibleText("2003");
-        BrowserUtils.wait(2);
+        BrowserUtils.wait(1);
 
         // select all months one by one
         // .getOption(); - returns all options from dropdown as List<WebElement>
         List<WebElement> months = selectMonth.getOptions();
-        for(WebElement month : months) {
+        for(WebElement eachMonth : months) {
             //get the month name and select based on that
-            selectMonth.selectByVisibleText(month.getText());
-            BrowserUtils.wait(2);
+            String monthName = eachMonth.getText();
+            selectMonth.selectByVisibleText(monthName);
+            BrowserUtils.wait(1);
         }
-        BrowserUtils.wait(2);
+        BrowserUtils.wait(1);
 
 
 
