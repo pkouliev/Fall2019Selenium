@@ -21,22 +21,35 @@ public class RegistrationForm {
 
         // enter first name
         driver.findElement(By.name("firstname")).sendKeys("John");
+        BrowserUtils.wait(2);
         driver.findElement(By.name("lastname")).sendKeys("Smith");
+        BrowserUtils.wait(2);
         driver.findElement(By.name("username")).sendKeys("jsmith");
+        BrowserUtils.wait(2);
         driver.findElement(By.name("email")).sendKeys("jsmith@email.com");
+        BrowserUtils.wait(2);;
         driver.findElement(By.name("password")).sendKeys("superSecretPassword2020");
+        BrowserUtils.wait(2);
         driver.findElement(By.name("phone")).sendKeys("571-343-2342");
+        BrowserUtils.wait(2);
 
         List<WebElement> genders = driver.findElements(By.name("gender"));
         // select gender
-        genders.get(1).click(); // select male, for example
-
-        driver.findElement(By.name("birthday")).sendKeys("01/01/2007");
-
-        driver.findElement(By.id("inlineCheckbox2")).click();
+        genders.get(0).click(); // select male, for example
 
         BrowserUtils.wait(2);
-        driver.findElement(By.id("wooden_spoon")).click();
+
+        driver.findElement(By.name("birthday")).sendKeys("01/01/2007");
+        BrowserUtils.wait(2);
+
+        driver.findElement(By.id("inlineCheckbox2")).click(); //select java
+
+        BrowserUtils.wait(2);
+        driver.findElement(By.id("wooden_spoon")).click(); // click on submit button
+
+        BrowserUtils.wait(2);
+
+        //ADD VALIDATION PART
 
 
 
