@@ -32,6 +32,11 @@ public class SelectByText {
         selectSimpleDropdown.selectByVisibleText("Option 1");
         BrowserUtils.wait(2);
 
+        // select your DOB
+        Select selectYear = new Select(driver.findElement(By.id("year")));
+        Select selectMonth = new Select(driver.findElement(By.id("month")));
+        Select selectDay = new Select(driver.findElement(By.id("day")));
+
 
 
 
