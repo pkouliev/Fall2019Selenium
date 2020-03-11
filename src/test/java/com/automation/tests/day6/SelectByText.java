@@ -34,12 +34,16 @@ public class SelectByText {
 
         // select your DOB
         Select selectYear = new Select(driver.findElement(By.id("year")));
+        BrowserUtils.wait(2);
         Select selectMonth = new Select(driver.findElement(By.id("month")));
+        BrowserUtils.wait(2);
         Select selectDay = new Select(driver.findElement(By.id("day")));
         BrowserUtils.wait(2);
 
         selectDay.selectByVisibleText("1");
+        BrowserUtils.wait(2);
         selectMonth.selectByVisibleText("February");
+        BrowserUtils.wait(2);
         selectYear.selectByVisibleText("2003");
         BrowserUtils.wait(2);
 
