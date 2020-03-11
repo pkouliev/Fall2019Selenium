@@ -7,6 +7,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 
+import java.util.List;
+
 public class SelectByText {
 
     public static void main(String[] args) {
@@ -46,6 +48,17 @@ public class SelectByText {
         BrowserUtils.wait(2);
         selectYear.selectByVisibleText("2003");
         BrowserUtils.wait(2);
+
+        // select all months one by one
+        // .getOption(); - returns all options from dropdown as List<WebElement>
+        List<WebElement> months = selectMonth.getOptions();
+        for(WebElement month : months) {
+            //get the month name and select based on that
+            selectMonth.selectByVisibleText(month.getText());
+            BrowserUtils.wait(2);
+        }
+        BrowserUtils.wait(2);
+
 
 
 
