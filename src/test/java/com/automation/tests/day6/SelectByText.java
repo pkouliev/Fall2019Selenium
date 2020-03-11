@@ -39,7 +39,7 @@ public class SelectByText {
         BrowserUtils.wait(2);
 
         selectDay.selectByVisibleText("1");
-        selectMonth.selectByVisibleText("1");
+        selectMonth.selectByVisibleText("February");
         selectYear.selectByVisibleText("2003");
         BrowserUtils.wait(2);
 
