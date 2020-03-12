@@ -66,6 +66,20 @@ public class SelectByText {
         Select stateSelect = new Select(driver.findElement(By.id("state")));
         BrowserUtils.wait(1);
         stateSelect.selectByVisibleText("District Of Columbia");
+        BrowserUtils.wait(1);
+
+
+        // option that is currently selected
+        // getFirstSelectedOption() -- returns a weblement, that's why we need to call getText()
+        // getText() retrieves visible text from the webElement
+        String selected = stateSelect.getFirstSelectedOption().getText();
+        BrowserUtils.wait(1);
+        if (selected.equals("District Of Columbia")) {
+            System.out.println("TEST PASSED");
+        }else{
+            System.out.println("TEST FAILED");
+        }
+        BrowserUtils.wait(1);
 
 
 
