@@ -16,6 +16,13 @@ public class SelectByIndex {
 
         Select stateSelect = new Select(driver.findElement(By.id("state")));
 
+        // index starts from 0
+        stateSelect.selectByIndex(9); //District of Columbia perhaps
+        BrowserUtils.wait(1);
+
+        //select last option
+        stateSelect.selectByIndex(stateSelect.getOptions().size()-1);
+
 
         BrowserUtils.wait(1);
         driver.quit();
