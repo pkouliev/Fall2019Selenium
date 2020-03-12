@@ -82,6 +82,12 @@ public class SelectByText {
         BrowserUtils.wait(1);
 
 
+        List<WebElement> states = stateSelect.getOptions();
+        for (WebElement stateOption: states) {
+            System.out.println(stateOption.getText());
+        }
+
+
 
 
 
