@@ -61,11 +61,11 @@ public class SelectByText {
             BrowserUtils.wait(1);
         }
 
-        Select stateSelect = new Select(driver.findElement("state"));
         BrowserUtils.wait(1);
 
-        stateSelect.selectByVisibleText("District of Columbia");
+        Select stateSelect = new Select(driver.findElement(By.id("state")));
         BrowserUtils.wait(1);
+        stateSelect.selectByVisibleText("District Of Columbia");
 
 
 
