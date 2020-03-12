@@ -31,6 +31,7 @@ public class Alerts {
         String actual = driver.findElement(By.id("result")).getText();
 
         // it will fail, because there is typo ##BUG##
+        System.out.println("TEST #1");
         if(expected.equals(actual)) {
             System.out.println("TEST PASSED");
         } else {
@@ -42,6 +43,8 @@ public class Alerts {
         BrowserUtils.wait(1);
 
         //########################################################################
+
+        System.out.println("TEST #2");
 
         buttons.get(1).click(); // to click on the 2nd button
         BrowserUtils.wait(1);
@@ -64,6 +67,8 @@ public class Alerts {
         //TASK: click on button #3
         //Enter some text: Hello, World!
         //Verify that result text ends with Hello, World!
+
+        System.out.println("TEST #3");
 
         buttons.get(2).click();
 
