@@ -21,6 +21,10 @@ public class Xpath {
         btn1.click();
         BrowserUtils.wait(1);
 
+        WebElement result = driver.findElement(By.id("result"));
+        System.out.println(result.getText());
+        BrowserUtils.wait(1);
+
 
 
 
