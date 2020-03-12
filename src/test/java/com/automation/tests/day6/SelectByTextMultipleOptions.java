@@ -26,6 +26,7 @@ public class SelectByTextMultipleOptions {
         languagesSelect.selectByVisibleText("Java");
         languagesSelect.selectByVisibleText("JavaScript");
         languagesSelect.selectByVisibleText("Python");
+        BrowserUtils.wait(1);
 
        // let's get all selected options
         List<WebElement> selectedLanguages = languagesSelect.getAllSelectedOptions();
@@ -35,6 +36,8 @@ public class SelectByTextMultipleOptions {
         }
 
         languagesSelect.deselectByVisibleText("Java"); // to unselect something
+        BrowserUtils.wait(1);
+        languagesSelect.deselectAll();
 
 
 
