@@ -29,7 +29,7 @@ public class Alerts {
         String expected = "You successfully clicked an alert";
         String actual = driver.findElement(By.id("result")).getText();
 
-        // it will fail, because there is typ0
+        // it will fail, because there is typo ##BUG##
         if(expected.equals(actual)) {
             System.out.println("TEST PASSED");
         } else {
@@ -37,6 +37,13 @@ public class Alerts {
             System.out.println("Expected: " +expected);
             System.out.println("Actual: " +actual);
         }
+
+        BrowserUtils.wait(1);
+
+        buttons.get(1).click(); // to click on the 2nd button
+        BrowserUtils.wait(1);
+        //to click cancel
+        driver.switchTo().alert().dismiss();
 
 
 
