@@ -42,12 +42,14 @@ public class SelectByText {
         Select selectDay = new Select(driver.findElement(By.id("day")));
         BrowserUtils.wait(1);
 
-        selectDay.selectByVisibleText("1");
+        selectYear.selectByVisibleText("2003");
         BrowserUtils.wait(1);
         selectMonth.selectByVisibleText("February");
         BrowserUtils.wait(1);
-        selectYear.selectByVisibleText("2003");
+        selectDay.selectByVisibleText("25");
         BrowserUtils.wait(1);
+
+
 
         // select all months one by one
         // .getOption(); - returns all options from dropdown as List<WebElement>
@@ -58,6 +60,11 @@ public class SelectByText {
             selectMonth.selectByVisibleText(monthName);
             BrowserUtils.wait(1);
         }
+
+        Select stateSelect = new Select(driver.findElement("state"));
+        BrowserUtils.wait(1);
+
+        stateSelect.selectByVisibleText("District of Columbia");
         BrowserUtils.wait(1);
 
 
@@ -67,6 +74,7 @@ public class SelectByText {
 
 
 
+        BrowserUtils.wait(1);
         driver.quit();
 
 
