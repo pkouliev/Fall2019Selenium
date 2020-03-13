@@ -1,9 +1,6 @@
 package com.officeHours.day_031020;
 
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.LinkedHashSet;
-import java.util.TreeSet;
+import java.util.*;
 
 public class Collections {
 
@@ -43,10 +40,13 @@ public class Collections {
         }
 
         System.out.println("hashSet: " + hashSet);
-
         System.out.println("treeSet: " + treeSet);
-
         System.out.println("linkedHashSet: " + linkedHashSet);
+
+        Iterator <String> iteratorSet = hashSet.iterator();
+        while (iteratorSet.hasNext()) {
+            System.out.println(iteratorSet.next());
+        }
 
 
     }
