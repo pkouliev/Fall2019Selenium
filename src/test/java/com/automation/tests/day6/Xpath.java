@@ -31,6 +31,24 @@ public class Xpath {
         System.out.println(result.getText());
         BrowserUtils.wait(1);
 
+        WebElement btn3 = driver.findElement(By.xpath("//button[starts-with(@id,'button_')]"));
+        btn3.click();
+        System.out.println(result.getText());
+        BrowserUtils.wait(1);
+
+        WebElement btn4 = driver.findElement(By.xpath("//button[contains(@id,'_button')][1]"));
+        btn4.click();
+        System.out.println(result.getText());
+        BrowserUtils.wait(1);
+
+        WebElement btn5 = driver.findElement(By.xpath("//button[contains(text(),'5')]"));
+        btn5.click();
+        System.out.println(result.getText());
+        BrowserUtils.wait(1);
+
+
+
+
 
 
 
