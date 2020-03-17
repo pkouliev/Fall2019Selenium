@@ -3,6 +3,8 @@ package com.automation.tests.day8;
 import org.testng.Assert;
 import org.testng.annotations.*;
 
+import java.util.Scanner;
+
 public class BasicTestNGTests {
 
     // runs only once before @BeforeClass and @BeforeMethod
@@ -62,4 +64,5 @@ public class BasicTestNGTests {
         // if assertion fails - it stops the execution (due to exception).
         Assert.assertTrue(num1 < num2);
     }
+
 }
