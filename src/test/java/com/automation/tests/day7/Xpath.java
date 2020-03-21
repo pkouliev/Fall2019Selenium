@@ -12,7 +12,7 @@ public class Xpath {
     public static String loginBtnLocator = "//button[contains(text(), 'Login')]";
     public static void main(String[] args) {
 
-        WebDriver driver = DriverFactory.createADriver("chrome");
+        WebDriver driver = DriverFactory.createDriver("chrome");
         driver.get("http://practice.cybertekschool.com/login");
         BrowserUtils.wait(3);
         driver.findElement(By.xpath(userNameLocator)).sendKeys("tomsmith");

@@ -15,7 +15,7 @@ public class RadioButtonsTest {
 //        WebDriverManager.chromedriver().version("79").setup();
 //        WebDriver driver = new ChromeDriver();
 
-        WebDriver driver = DriverFactory.createADriver("chrome");
+        WebDriver driver = DriverFactory.createDriver("chrome");
 
         driver.get("http://practice.cybertekschool.com/radio_buttons");
 

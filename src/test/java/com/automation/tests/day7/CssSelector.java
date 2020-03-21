@@ -11,7 +11,7 @@ public class CssSelector {
 
     public static void main(String[] args) {
 
-        WebDriver driver = DriverFactory.createADriver("chrome");
+        WebDriver driver = DriverFactory.createDriver("chrome");
         driver.get("http://practice.cybertekschool.com/multiple_buttons");
         WebElement heading = driver.findElement(By.cssSelector(".h3"));
         WebElement home = driver.findElement(By.cssSelector(".nav-link"));

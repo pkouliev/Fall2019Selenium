@@ -13,7 +13,7 @@ public class Alerts {
 
     public static void main(String[] args) {
 
-        WebDriver driver = DriverFactory.createADriver("chrome");
+        WebDriver driver = DriverFactory.createDriver("chrome");
         driver.get("http://practice.cybertekschool.com/javascript_alerts");
         BrowserUtils.wait(1);
 

@@ -13,7 +13,7 @@ public class SelectByText {
 
     public static void main(String[] args) {
 
-        WebDriver driver = DriverFactory.createADriver("chrome");
+        WebDriver driver = DriverFactory.createDriver("chrome");
 
         driver.get("http://practice.cybertekschool.com/dropdown");
         BrowserUtils.wait(1);

@@ -26,7 +26,7 @@ public class March4 {
      */
 
     public static void ebayTest() throws Exception {
-        driver = DriverFactory.createADriver("chrome");
+        driver = DriverFactory.createDriver("chrome");
 
         //Go to eBay
         driver.get("http://ebay.com");
@@ -66,7 +66,7 @@ public class March4 {
 
     public static void amazonTest() throws Exception{
 
-        driver = DriverFactory.createADriver("chrome");
+        driver = DriverFactory.createDriver("chrome");
 
         //Go to amazon
         driver.get("http://amazon.com");
@@ -101,7 +101,7 @@ public class March4 {
 
     public static void wikiTest() throws Exception {
 
-        driver = DriverFactory.createADriver("chrome");
+        driver = DriverFactory.createDriver("chrome");
 
         // Go to wikipedia.org
         driver.get("https://en.wikipedia.org/wiki/Main_Page");
