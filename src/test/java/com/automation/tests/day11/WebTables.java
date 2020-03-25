@@ -2,9 +2,12 @@ package com.automation.tests.day11;
 
 import com.automation.utilities.BrowserUtils;
 import com.automation.utilities.DriverFactory;
+import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
@@ -20,11 +23,20 @@ public class WebTables {
     @BeforeMethod
     public void setup() {
 
-        driver = DriverFactory.createDriver("chrome");
+//        driver = DriverFactory.createDriver("chrome");
+
+        WebDriverManager.chromedriver().version("79").setup();
+        ChromeOptions chromeOptions = new ChromeOptions();
+        //headless mode makes execution twice faster
+        // it does everything except file uploading
+        // set it to true to make it work
+        chromeOptions.setHeadless(false); // to run browser without GUI (interface). Makes browser invisible.
+        driver = new ChromeDriver();
+
         driver.get("http://practice.cybertekschool.com/tables");
         driver.manage().window().maximize();
         driver.manage().deleteAllCookies();
-        BrowserUtils.wait(2);
+        BrowserUtils.wait(3);
     }
 
     @AfterMethod
@@ -58,4 +70,43 @@ public class WebTables {
         // expected - 4 rows in the table
         Assert.assertEquals(rows.size(), 4);
     }
+
+    /**
+     * To get specific column, skip row index, and just provide td index
+     */
+    @Test
+    public void getSpecificColumn() {
+
+        // td[5] - column with links
+        List<WebElement> links = driver.findElements(By.xpath("//table[1]//tbody//tr//td[5]"));
+        System.out.println(BrowserUtils.getTextFromWebElements(links));
+
+    }
+
+    /**
+     * Go to tables example page
+     * Delete record with jsmith@gmail.com email
+     * verify that number of rows is equal to 3
+     * verify that jsmith@gmail.com doesn't exist any more in the table
+     */
+    @Test
+    public void verifyEmailDeleted() {
+
+        String email = "jsmith@gmail.com";
+
+        WebElement jSmithEmail = driver.findElement(By.xpath("//table[1]//tbody//tr[1]/td[3]"));
+        WebElement deleteCell = driver.findElement(By.xpath("//table[1]//tbody//tr[1]/td[6]//a[2]"));
+
+        deleteCell.click();
+
+        BrowserUtils.wait(3);
+
+        List<WebElement> remainingRows = driver.findElements(By.xpath("//table[1]//tbody//tr"));
+
+        Assert.assertEquals(remainingRows.size(), 3);
+
+        List<WebElement> emails = driver.findElements(By.xpath("//table[1]//td[text()='jsmith@gmail.com']"));
+        Assert.assertTrue(emails.isEmpty());
+    }
+
 }
