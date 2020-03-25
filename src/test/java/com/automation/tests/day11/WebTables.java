@@ -109,4 +109,28 @@ public class WebTables {
         Assert.assertTrue(emails.isEmpty());
     }
 
+    /**
+     * Let's write a function that will return column index based on column name
+     */
+    @Test
+    public void getColumnIndexByName() {
+        String columnName = "Email";
+
+        List<WebElement> columnNames = driver.findElements(By.xpath("//table[2]//th"));
+
+        int index = 0;
+        for (int i = 0; i < columnNames.size(); i++) {
+            String actualColumnName = columnNames.get(i).getText();
+
+            System.out.println(String.format("Column name: %s, position %s", actualColumnName, i));
+
+            if (columnNames.get(i).getText().equals(columnName)) {
+                index = i + 1;
+                break;
+            }
+        }
+
+        Assert.assertEquals(index, 3);
+    }
+
 }
