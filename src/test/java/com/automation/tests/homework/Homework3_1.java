@@ -96,7 +96,49 @@ public class Homework3_1 {
         Assert.assertEquals(warningMsg.getText(), expectedWarningMsg);
 
         System.out.println("Test Case 4 passed");
+    }
 
+    /**
+     * Step 3. Enter any valid first name.
+     * Step 4. Enter any valid last name.
+     * Step 5. Enter any valid user name.
+     * Step 6. Enter any valid password.
+     * Step 7. Enter any valid phone number.
+     * Step 8. Select gender.
+     * Step 9. Enter any valid date of birth.
+     * Step 10. Select any department.
+     * Step 11. Enter any job title.
+     * Step 12. Select java as a programming language.
+     * Step 13. Click Sign up.
+     * Step 14. Verify that following success message is displayed: “You've successfully completed registration!”
+     */
+    @Test
+    public void testCase5() {
+        driver.findElement(By.xpath("//input[@placeholder='first name']")).sendKeys("John");
+        driver.findElement(By.xpath("//input[@placeholder='last name']")).sendKeys("Smith");
+        driver.findElement(By.xpath("//input[@placeholder='username']")).sendKeys("jsmith");
+        driver.findElement(By.xpath("//input[@placeholder='email@email.com']")).sendKeys("jsmith@mail.com");
+        driver.findElement(By.xpath("//input[@name='password']")).sendKeys("1234556666");
+        driver.findElement(By.xpath("//input[@type='tel']")).sendKeys("123-456-7890");
+        driver.findElement(By.xpath("//input[@value='male']")).click();
+        driver.findElement(By.xpath("//input[@name='birthday']")).sendKeys("01/16/1996");
+
+        driver.findElement(By.name("department")).click();
+        driver.findElement(By.xpath("//option[. = 'Accounting Office']")).click();
+
+        driver.findElement(By.name("job_title")).click();
+        driver.findElement(By.xpath("//option[contains(text(),'Scrum Master')]")).click();
+
+        driver.findElement(By.id("inlineCheckbox2")).click();
+
+        driver.findElement(By.id("wooden_spoon")).click();
+
+        String message = driver.findElement(By.xpath("//p[contains(text(),\"You've successfully completed registration!\")]")).getText();
+        String expectedMsg = "You've successfully completed registration!";
+
+        Assert.assertEquals(message, expectedMsg);
+
+        System.out.println("Test Case 5 passed");
     }
 
     @AfterMethod
