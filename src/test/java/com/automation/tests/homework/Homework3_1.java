@@ -23,6 +23,8 @@ public class Homework3_1 {
         driver.manage().deleteAllCookies();
         driver.manage().timeouts().pageLoadTimeout(40, TimeUnit.SECONDS);
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+        driver.get("https://practice-cybertekschool.herokuapp.com");
+        driver.findElement(By.linkText("Registration Form")).click();
     }
 
     /**
@@ -34,16 +36,14 @@ public class Homework3_1 {
     @Test
     public void testCase1() {
 
-        driver.get("https://practice-cybertekschool.herokuapp.com");
-
-        driver.findElement(By.linkText("Registration Form")).click();
-
         driver.findElement(By.xpath("//input[@placeholder='MM/DD/YYYY']")).sendKeys("wrong_dob");
 
         WebElement actual = driver.findElement(By.xpath("//small[contains(text(),'The date of birth is not valid')]"));
         String expected = "The date of birth is not valid";
 
         Assert.assertEquals(actual.getText(), expected);
+
+        System.out.println("Test Case 1 passed");
 
     }
 
@@ -55,6 +55,15 @@ public class Homework3_1 {
     @Test
     public void testCase2() {
 
+        WebElement cPlusPlus = driver.findElement(By.xpath("//label[text()='C++']"));
+        WebElement java = driver.findElement(By.xpath("//label[text()='Java']"));
+        WebElement javaScript = driver.findElement(By.xpath("//label[text()='JavaScript']"));
+
+        Assert.assertEquals(cPlusPlus.getText(), "C++");
+        Assert.assertEquals(java.getText(), "Java");
+        Assert.assertEquals(javaScript.getText(), "JavaScript");
+
+        System.out.println("Test Case 2 passed");
     }
 
     @AfterMethod
