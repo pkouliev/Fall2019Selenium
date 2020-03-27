@@ -66,6 +66,23 @@ public class Homework3_1 {
         System.out.println("Test Case 2 passed");
     }
 
+    /**
+     * Step 1. Go to “https://practice-cybertekschool.herokuapp.com”
+     * Step 2. Click on “Registration Form”
+     * Step 3. Enter only one alphabetic character into first name input box.
+     * Step 4. Verify that warning message is displayed: “first name must be more than 2 and less than 64 characters long”
+     */
+    @Test
+    public void testCase3() {
+        driver.findElement(By.xpath("//input[@name='firstname']")).sendKeys("h");
+        WebElement warningMsg = driver.findElement(By.xpath("//small[contains(text(),'first name m')]"));
+        String expectedWarningMsg = "first name must be more than 2 and less than 64 characters long";
+
+        Assert.assertEquals(warningMsg.getText(), expectedWarningMsg);
+
+        System.out.println("Test Case 3 passed");
+    }
+
     @AfterMethod
     public void teardown() {
         driver.quit();
