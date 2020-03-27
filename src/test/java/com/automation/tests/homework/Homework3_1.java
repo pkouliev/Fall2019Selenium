@@ -16,6 +16,10 @@ public class Homework3_1 {
 
     WebDriver driver;
 
+    /**
+     * Step 1. Go to “https://practice-cybertekschool.herokuapp.com”
+     * Step 2. Click on “Registration Form”
+     */
     @BeforeMethod
     public void setup() {
         driver = DriverFactory.createDriver("chrome");
@@ -28,8 +32,6 @@ public class Homework3_1 {
     }
 
     /**
-     * Step 1. Go to “https://practice-cybertekschool.herokuapp.com”
-     * Step 2. Click on “Registration Form”
      * Step 3. Enter “wrong_dob” into date of birth input box.
      * Step 4. Verify that warning message is displayed: “The date of birth is not valid”
      */
@@ -48,8 +50,6 @@ public class Homework3_1 {
     }
 
     /**
-     * Step 1. Go to “https://practice-cybertekschool.herokuapp.com”
-     * Step 2. Click on “Registration Form”
      * Step 3. Verify that following options for programming languages are displayed: c++, java, JavaScript
      */
     @Test
@@ -67,8 +67,6 @@ public class Homework3_1 {
     }
 
     /**
-     * Step 1. Go to “https://practice-cybertekschool.herokuapp.com”
-     * Step 2. Click on “Registration Form”
      * Step 3. Enter only one alphabetic character into first name input box.
      * Step 4. Verify that warning message is displayed: “first name must be more than 2 and less than 64 characters long”
      */
@@ -81,6 +79,24 @@ public class Homework3_1 {
         Assert.assertEquals(warningMsg.getText(), expectedWarningMsg);
 
         System.out.println("Test Case 3 passed");
+    }
+
+    /**
+     * Step 3. Enter only one alphabetic character into last name input box.
+     * Step 4. Verify that warning message is displayed:
+     * “The last name must be more than 2 and less than 64 characters long”
+     */
+    @Test
+    public void testCase4() {
+
+        driver.findElement(By.xpath("//input[@name='lastname']")).sendKeys("h");
+        WebElement warningMsg = driver.findElement(By.xpath("//small[contains(text(),'last name m')]"));
+        String expectedWarningMsg = "The last name must be more than 2 and less than 64 characters long";
+
+        Assert.assertEquals(warningMsg.getText(), expectedWarningMsg);
+
+        System.out.println("Test Case 4 passed");
+
     }
 
     @AfterMethod
