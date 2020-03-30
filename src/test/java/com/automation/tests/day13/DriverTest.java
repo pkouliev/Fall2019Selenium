@@ -2,10 +2,13 @@ package com.automation.tests.day13;
 
 import com.automation.utilities.BrowserUtils;
 import com.automation.utilities.Driver;
+import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
 public class DriverTest {
+
+    WebDriver driver;
 
     @Test
     public void googleTest() {
