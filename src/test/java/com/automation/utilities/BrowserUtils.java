@@ -40,4 +40,14 @@ public class BrowserUtils {
             error.printStackTrace();
         }
     }
+
+    /**
+     * Clicks on an element using JavaScript
+     *
+     * @param element
+     */
+    public static void clickWithJS(WebElement element) {
+        ((JavascriptExecutor) Driver.getDriver()).executeScript("arguments[0].scrollIntoView(true);", element);
+        ((JavascriptExecutor) Driver.getDriver()).executeScript("arguments[0].click;", element);
+    }
 }
