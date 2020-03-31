@@ -10,18 +10,21 @@ import org.openqa.selenium.support.PageFactory;
 
 public class LoginPage {
 
-    @FindBy(id = "prependentInput")
-    public WebElement username;
+    @FindBy(id = "prependedInput")
+    private WebElement username;
 //    public WebElement username2 = Driver.getDriver().findElement(By.id("prependentInput"));
 
-    @FindBy(id = "pependentInput2")
-    public WebElement password;
+    @FindBy(id = "prependedInput2")
+    private WebElement password;
 
     @FindBy(id = "_submit")
-    public WebElement login;
+    private WebElement login;
 
     @FindBy(linkText = "Forgot your password?")
-    public WebElement forgotPassword;
+    private WebElement forgotPassword;
+
+    @FindBy(css = "[class='alert alert-error']")
+    private WebElement warningMessage;
 
 
     public LoginPage() {
@@ -31,6 +34,10 @@ public class LoginPage {
         PageFactory.initElements(Driver.getDriver(), this);
     }
 
+    public String getWarningMessage() {
+        return warningMessage.getText();
+    }
+
     /**
      * Method to login, version #1
      * Login as a specific user
@@ -38,9 +45,10 @@ public class LoginPage {
      * @param usernameValue
      * @param passwordValue
      */
-    public void Login(String usernameValue, String passwordValue) {
-        this.username.sendKeys(usernameValue);
-        this.password.sendKeys(passwordValue, Keys.ENTER);
+    public void login(String usernameValue, String passwordValue) {
+        username.sendKeys(usernameValue);
+        password.sendKeys(passwordValue, Keys.ENTER);
+        BrowserUtils.waitForPageToLoad(10);
         BrowserUtils.wait(3);
     }
 
@@ -49,9 +57,10 @@ public class LoginPage {
      * Login as a default user
      * Credentials will be retrieved from Configuration.properties file
      */
-    public void Login() {
+    public void login() {
         username.sendKeys(ConfigurationReader.getProperty("store_manager"));
-        password.sendKeys(ConfigurationReader.getProperty("password"));
+        password.sendKeys(ConfigurationReader.getProperty("password"), Keys.ENTER);
+        BrowserUtils.wait(3);
     }
 
 
