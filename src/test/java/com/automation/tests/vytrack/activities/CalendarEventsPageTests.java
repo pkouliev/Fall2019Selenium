@@ -120,7 +120,7 @@ public class CalendarEventsPageTests {
 
         Assert.assertEquals(actualDate, expectedDate);
 
-        String expectedTime = LocalTime.now(ZoneId.of("GMT-7")).format(DateTimeFormatter.ofPattern("h:m a"));
+        String expectedTime = LocalTime.now(ZoneId.of("GMT-7")).format(DateTimeFormatter.ofPattern("h:mm a"));
         String actualTime = driver.findElement(startTimeBy).getAttribute("value");
 
         Assert.assertEquals(actualTime, expectedTime);
