@@ -1,0 +1,49 @@
+package com.automation.utilities;
+
+import java.time.LocalDate;
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
+import java.time.format.FormatStyle;
+import java.time.temporal.ChronoUnit;
+
+public class DateTimeUtilities {
+
+    /**
+     * This method returns current date as a string.
+     * Provide a format as a parameter
+     * MM - to specify month like: 01, 02, 03,
+     * MMM - Jan, Feb, Mar
+     * <p>
+     * dd - to specify day, like 01, 02, 03
+     * <p>
+     * yyyy - to specify year like: 2010, 2020
+     *
+     * @param localDate for example MMM dd, yyyy = Mar 29, 2020
+     * @return current date as a LocalDate
+     * <p>
+     * https://www.journaldev.com/17899/java-simpledateformat-java-date-format
+     */
+    public static String getCurrentDate(LocalDate localDate) {
+
+        return localDate.format(DateTimeFormatter.ofLocalizedDate(FormatStyle.MEDIUM));
+    }
+
+
+    /**
+     * This method returns difference between end and start time
+     *
+     * @param start  time
+     * @param end    time
+     * @param format like h:mm a --> 5:15 AM
+     * @return difference between end time and start time as a long
+     */
+    public static long getTimeDifference(String start, String end, String format) {
+
+        LocalTime startTime = LocalTime.parse(start, DateTimeFormatter.ofPattern(format));
+        LocalTime endTime = LocalTime.parse(end, DateTimeFormatter.ofPattern(format));
+
+        return ChronoUnit.HOURS.between(startTime, endTime);
+    }
+
+}
+
