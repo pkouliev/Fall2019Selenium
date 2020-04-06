@@ -1,0 +1,17 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+
+<suite name="Smoke">
+    <!--    represents extent report name -->
+    <test name="Smoke test">
+        <parameter name="reportName" value="smoke"></parameter>
+        <classes>
+
+            <class name="com.automation.tests.vytrack.login.NewLoginTests">
+                <methods>
+                    <!--   remove loginWithDDT method from test execution list -->
+                    <exclude name="LoginWithDDT"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>
