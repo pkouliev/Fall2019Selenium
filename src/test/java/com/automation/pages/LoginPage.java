@@ -26,6 +26,9 @@ public class LoginPage extends AbstractPageBase {
     @FindBy(css = "[class='alert alert-error']")
     private WebElement warningMessage;
 
+    @FindBy(className = "login-copyright")
+    private WebElement logo;
+
 
     public LoginPage() {
         //to connect our webdriver, page class and page factory
