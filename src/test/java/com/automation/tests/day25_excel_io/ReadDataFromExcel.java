@@ -5,6 +5,9 @@ import org.testng.annotations.Test;
 
 import java.io.File;
 
+/**
+ * PLEASE DON'T WORRY ABOUT QUESTION MARK ON THE EXCEL FILE ICON
+ */
 public class ReadDataFromExcel {
 
     @Test
@@ -24,6 +27,26 @@ public class ReadDataFromExcel {
         // get string value
         String value = firstCell.getStringCellValue();
 
+        String secondCellValue = firstRow.getCell(1).getStringCellValue();
+
         System.out.println(value);
+        System.out.println(secondCellValue);
+
+        System.out.println("#################################################");
+
+        int lastCell = firstRow.getLastCellNum();
+
+        for (int i = 0; i < lastCell; i++) {
+            System.out.print(firstRow.getCell(i) + " | ");
+        }
+
+        // last row is 16th --> index is 15
+        // index of last row
+        int numberOfRows = workSheet.getLastRowNum();
+        //returns how many rows at all
+        int numberOfRows2 = workSheet.getPhysicalNumberOfRows();
+        System.out.println("\nIndex of last row   : " + numberOfRows);
+        System.out.println("\nNumber of rows 2 : " + numberOfRows2);
+
     }
 }
