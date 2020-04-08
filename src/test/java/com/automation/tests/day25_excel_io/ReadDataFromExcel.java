@@ -1,9 +1,12 @@
 package com.automation.tests.day25_excel_io;
 
+import com.automation.utilities.ExcelUtil;
 import org.apache.poi.ss.usermodel.*;
 import org.testng.annotations.Test;
 
+
 import java.io.File;
+import java.util.Map;
 
 /**
  * PLEASE DON'T WORRY ABOUT QUESTION MARK ON THE EXCEL FILE ICON
@@ -48,5 +51,36 @@ public class ReadDataFromExcel {
         System.out.println("\nIndex of last row   : " + numberOfRows);
         System.out.println("\nNumber of rows 2 : " + numberOfRows2);
 
+        System.out.println("###############################################");
+
+        for (int row = 0; row < workSheet.getPhysicalNumberOfRows(); row++) {
+            for (int cell = 0; cell < workSheet.getRow(row).getLastCellNum(); cell++) {
+                String cellValue = workSheet.getRow(row).getCell(cell).getStringCellValue();
+                System.out.print(cellValue + " | ");
+            }
+            System.out.println();
+        }
+    }
+
+    @Test
+    public void execUtilityTest() {
+        String path = "VytrackTestUsers.xlsx";
+        String spreadSheet = "QA1-all";
+        ExcelUtil excelUtil = new ExcelUtil(path, spreadSheet);
+        // https://docs.oracle.com/javase/tutorial/java/javaOO/methodreferences.html
+        //  excelUtil.getDataList().forEach(System.out::println);
+
+        for (Map<String, String> record : excelUtil.getDataList()) {
+            System.out.println(record);
+        }
+    }
+
+    @Test
+    public void getColumnNamesTest() {
+        String path = "VytrackTestUsers.xlsx";
+        String spreadSheet = "QA1-short";
+        ExcelUtil excelUtil = new ExcelUtil(path, spreadSheet);
+
+        System.out.println(excelUtil.getColumnsNames());
     }
 }
